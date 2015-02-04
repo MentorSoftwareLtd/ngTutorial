@@ -1,5 +1,8 @@
+
+
 var express = require('express');
 var path = require('path');
+//TODO: change  static-favicon to serve-favicon
 var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -19,8 +22,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(require('less-middleware')(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(require('less-middleware')(path.join(__dirname, 'build')));
+app.use('/build',express.static(path.join(__dirname, 'build')));
+app.use('/public',express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);

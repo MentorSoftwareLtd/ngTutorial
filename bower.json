@@ -1,0 +1,7 @@
+{
+  "name": "AngularJS + RequireJS Example",
+  "version": "0.1",
+  "dependencies": {
+    "angular": "~1.3.9"
+  }
+}
