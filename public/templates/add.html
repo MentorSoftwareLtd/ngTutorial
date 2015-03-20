@@ -1,0 +1,29 @@
+<p>Add</p>
+<div>
+    <p ng-repeat="error in messages">
+        <span>{{error.message}}</span>
+    </p>
+</div>
+<form name="AddPerson" novalidate>
+    <input type="text" name="fn"
+           ng-model="person.fn" required>
+    <div ng-show="AddPerson.fn.$dirty">
+        <span ng-show="AddPerson.fn.$error.required">Fn is required.</span>
+    </div>
+    <input type="text" name="ln"
+           ng-model="person.ln" required>
+    <div ng-show="true">
+        <span ng-show="AddPerson.ln.$error.required">Ln is required.</span>
+    </div>
+    <button ng-disabled="AddPerson.$invalid"
+            ng-click="save(AddPerson)">Save</button>
+</form>
+
+<pre>fn $dirty {{AddPerson.fn.$dirty}}</pre>
+<pre>fn $pristing {{AddPerson.fn.$pristine}}</pre>
+<pre>fn $valid {{AddPerson.fn.$valid}}</pre>
+<pre>fn $invalid {{AddPerson.fn.$invalid}}</pre>
+<pre>fn $submited {{AddPerson.fn.$submited}}</pre>
+<pre>fn $error {{AddPerson.fn.$error}}</pre>
+
+<pre>Form Controller {{AddPerson | json}}</pre>

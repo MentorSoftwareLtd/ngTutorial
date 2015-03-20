@@ -1,0 +1,37 @@
+<!-- Add routing and this file will contains examples-->
+<!DOCTYPE html>
+<html ng-app="ngTutorial">
+<head>
+    <title>Angular Tutorial</title>
+    <link rel='stylesheet' href='/less/style.css' />
+</head>
+<body ng-controller="MainCtrl">
+<p>Welcome {{name}}</p>
+<p ng-bind="name"></p>
+<div>
+    <my-directive my-model="name"></my-directive>
+</div>
+<div>
+    <my-directive></my-directive>
+</div>
+<input type="text" ng-model="name">
+<br>
+<button ng-click="loadPeople();">Load data</button>
+<table id="tableData">
+    <thead>
+    <th>No.</th>
+    <th>Fn</th>
+    <th>Ln</th>
+    </thead>
+    <tr ng-repeat="person in people">
+        <td>{{$index+1}}</td>
+        <td ng-bind="person.fn"></td>
+        <td>{{person.ln}}</td>
+    </tr>
+</table>
+<script src="/components/angular/angular.min.js"></script>
+<script src="/javascripts/app.js"></script>
+
+</body>
+
+</html>

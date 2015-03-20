@@ -7,3 +7,32 @@ router.get('/', function(req, res) {
 });
 
 module.exports = router;
+
+router.post('/api/auth/signin', function(req, res) {
+    res.jsonp({result: 'OK'});
+});
+
+router.post('/api/auth/signup', function(req, res) {
+    res.jsonp({result: 'OK'});
+});
+
+router.post('/api/auth/signout', function(req, res) {
+    res.jsonp({result: 'OK'});
+});
+
+router.get('/api/patient/get/:id', function(req, res) {
+    res.jsonp({result: 'OK'});
+});
+router.get('/api/patients', function(req, res) {
+    res.jsonp({result: 'OK'});
+});
+
+router.post('/api/patient/add', function(req, res) {
+    res.jsonp({result: 'OK'});
+});
+
+router.post('/api/patient/delete', function(req, res ) {
+    if (req.body.patient) {
+        res.jsonp({result: 'OK'});
+    }
+});

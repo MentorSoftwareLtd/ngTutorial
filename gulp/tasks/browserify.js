@@ -12,11 +12,11 @@ gulp.task('browserify', function () {
         return b.bundle();
     });
 
-    var bundler = browserify('./src/js/app.js');
+    //var bundler = browserify('./src/js/app.js');
     //bundler.transform(ngAnnotate);
-    var stream = bundler.bundle();
+    //var stream = bundler.bundle();
 
-    return gulp.src('./src/js/app.js')
+    return gulp.src('./client/js/app.js')
         //.pipe(ngAnnotate())
     //return stream
         //.pipe(source('output.js'))
