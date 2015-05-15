@@ -4,42 +4,44 @@
 var assert = require('assert');
 var request = require('supertest');
 var app = require('../../app');
+var http = require('http');
+
 
 describe('Test API routing', function() {
     var mock;
 
-    beforeEach(function (done) {
-        //app = express();
+    before(function (done) {
+        var port = 1277;
+        app.set('port', port);
+        server = http.createServer(app);
+        server.listen(port, function (err) {
+            return done(err);
+            console.log('server started');
+        });
 
-        app.on('start', done);
-        app.on('start',function() {
-            console.log('start');
-        })
+        server.on('error', function (err) {
+            console.log('Error', err);
+        });
 
-        mock = app.listen(1337);
-        //done();
     });
 
-    afterEach(function (done) {
-        mock.close(done);
-    });
+    after(function (done) {
+        server.close(function () {
+            done();
+        });    });
 
-    //sync
+
     it('Test /api/people', function(done){
-        request(mock).
-            get('/api/people').
-            expect(200,done).
-            expect('Content-Type',/ala/).
+        request(server).
+           get('/api/people').
+            expect(200).
+            expect('Content-Type',/application\/json/).
             end(function(err, res) {
-                console.log('Res',res);
+                //console.log('Res',res);
+                done(err);
             }
         );
 
-    });
-    //async
-    it('Test people service', function(done){
-        assert.equal(true, true);
-        done();
     });
 
 })

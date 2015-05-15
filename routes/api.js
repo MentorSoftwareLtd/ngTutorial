@@ -7,7 +7,8 @@ var people=[
 ];
 /* GET /api/people */
 router.get('/people', function(req, res, next) {
-    res.json(people);
+    console.log("People");
+    res.status(200).json(people);
 });
 /*POST /api/add */
 router.post('/add', function(req, res, next) {
